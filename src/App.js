@@ -1,9 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/navbar/navbar';
+import Footer from './components/footer/footer';
+import React from 'react';
+import {
+  MDBBtn,
+  MDBContainer,
+  MDBCard,
+  MDBCardBody,
+  MDBInput,
+  MDBCheckbox
+}
+from 'mdb-react-ui-kit';
 
 function App() {
   return (
-    <div className="App">
+    <>
+    <Navbar/>
+<div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,6 +33,8 @@ function App() {
         </a>
       </header>
     </div>
+    <Footer/>
+    </>
   );
 }
 
