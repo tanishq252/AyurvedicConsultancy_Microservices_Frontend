@@ -35,7 +35,7 @@ const PrescriptionPage = () => {
     var array;
     var arr = [];
     await axios
-      .get("http://localhost:3001/doctorService/prescriptions")
+      .get("http://microservices-1023118942.ap-south-1.elb.amazonaws.com/doctorService/prescriptions")
       .then((response) => {
         array = response.data;
         arr = array.filter((obj) => {
@@ -50,17 +50,23 @@ const PrescriptionPage = () => {
       });
   };
 
-  return (
-    data.length == 0?<><Navbar/><center>
-    <h2>None of the doctors have prescribed yet</h2>
-  </center>:</>:
+  return data.length == 0 ? (
     <>
       <Navbar />
+      <center>
+        <h2>None of the doctors have prescribed yet</h2>
+      </center>
+      :
+    </>
+  ) : (
+    <>
+      <Navbar />
+      <div className="page">
       {data.map((item) => {
         return (
           <>
             <div className="querycontainer">
-              <div className="body">{item.body}</div>
+              <div className="answerBody">{item.body}</div>
               <div className="viewpresc">Prescribed by: {item.doctorname}</div>
             </div>
           </>
@@ -68,6 +74,7 @@ const PrescriptionPage = () => {
       })}
       <ToastContainer />
       <br></br>
+      </div>
       <Footer />
     </>
   );

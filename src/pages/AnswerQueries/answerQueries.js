@@ -33,7 +33,7 @@ const AnswerQueriesPage = () => {
   const getData = async (e) => {
     let arr = [];
     await axios
-      .get("http://localhost:3002/userService/queries")
+      .get("http://microservices-1023118942.ap-south-1.elb.amazonaws.com/userService/queries")
       .then((response) => {
         arr = response.data;
         arr.reverse();
@@ -51,7 +51,7 @@ const AnswerQueriesPage = () => {
         return (
           <>
             <div className="querycontainer">
-              <div className="body">{item.body}</div>
+              <div className="answerBody">{item.body}</div>
               <div className="viewpresc">
                 <Button
                   className="btn"

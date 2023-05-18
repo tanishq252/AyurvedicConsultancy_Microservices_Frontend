@@ -24,20 +24,21 @@ const Prescribe = () => {
   const [data, setData] = useState([]);
   const [prescribed, setPrescribed] = useState(prescriptionObj ? true : false);
   // let prescribed = false;
-  const [prescription, setPrescription] = useState(prescriptionObj ? prescriptionObj.body : "");
+  const [prescription, setPrescription] = useState(
+    prescriptionObj ? prescriptionObj.body : ""
+  );
   const [submitType, setSubmitType] = useState("");
-
 
   const navigate = useNavigate();
 
-  let presc=[];
+  let presc = [];
 
   const userId = localStorage.getItem("userId");
   const client = localStorage.getItem("client");
   const { state } = useLocation();
   const queryId = state.queryId;
 
-  const [prescId, setprescId] = useState(queryId)
+  const [prescId, setprescId] = useState(queryId);
 
   useEffect(() => {
     getData();
@@ -47,19 +48,17 @@ const Prescribe = () => {
     var array;
     var arr = [];
     await axios
-      .get("http://localhost:3001/doctorService/prescriptions")
+      .get("http://microservices-1023118942.ap-south-1.elb.amazonaws.com/doctorService/prescriptions")
       .then((response) => {
         array = response.data;
         arr = array.filter((obj) => {
           return obj.queryId == queryId;
         });
-        presc = arr.filter(
-          (prescription) => prescription.doctorId == userId
-        );
+        presc = arr.filter((prescription) => prescription.doctorId == userId);
         if (presc) {
           console.log("prescription Given");
           prescriptionObj = presc[0];
-          setprescId(prescriptionObj._id)
+          setprescId(prescriptionObj._id);
           setPrescription(prescriptionObj.body);
           // prescribed = true;
           setPrescribed(true);
@@ -71,8 +70,7 @@ const Prescribe = () => {
           autoClose: 1500,
         });
       });
-      console.log(prescriptionObj);
-
+    console.log(prescriptionObj);
   };
 
   const createPrescription = async (e) => {
@@ -85,7 +83,7 @@ const Prescribe = () => {
     } else {
       try {
         const res = await axios.post(
-          `http://localhost:3001/doctorService/${userId}/${queryId}/prescription`,
+          `http://microservices-1023118942.ap-south-1.elb.amazonaws.com/doctorService/${userId}/${queryId}/prescription`,
           {
             body: prescription,
           }
@@ -94,7 +92,9 @@ const Prescribe = () => {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 1500,
         });
-        setTimeout(()=>{navigate('/answerQueries')}, 2000)
+        setTimeout(() => {
+          navigate("/answerQueries");
+        }, 2000);
         getData();
       } catch (e) {
         console.log(e.response.data);
@@ -108,10 +108,10 @@ const Prescribe = () => {
 
   const updatePrescription = async (e) => {
     console.log(prescId);
-    try{
+    try {
       // console.log(prescriptionObj._id);
       const res = await axios.patch(
-        `http://localhost:3001/doctorService/${prescId}`,
+        `http://microservices-1023118942.ap-south-1.elb.amazonaws.com/doctorService/${prescId}`,
         {
           body: prescription,
         }
@@ -120,40 +120,44 @@ const Prescribe = () => {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 1500,
       });
-      setTimeout(()=>{navigate('/answerQueries')}, 2000)
-    }catch (e) {
-        console.log(e);
-        toast.error(`${e}`, {
-          position: toast.POSITION.TOP_CENTER,
-          autoClose: 1500,
-        });
-      }
+      setTimeout(() => {
+        navigate("/answerQueries");
+      }, 2000);
+    } catch (e) {
+      console.log(e);
+      toast.error(`${e}`, {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1500,
+      });
+    }
   };
 
   const deletePrescription = async (e) => {
-    try{
+    try {
       const res = await axios.delete(
-        `http://localhost:3001/doctorService/${queryId}/${prescId}`
+        `http://microservices-1023118942.ap-south-1.elb.amazonaws.com/doctorService/${queryId}/${prescId}`
       );
       toast.success(`Your prescription has been deleted successfully!`, {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 1500,
       });
-      setTimeout(()=>{navigate('/answerQueries')}, 2000)
-    }catch (e) {
-        console.log(e.response.data);
-        toast.error(`${e.response.data}`, {
-          position: toast.POSITION.TOP_CENTER,
-          autoClose: 1500,
-        });
-      }
+      setTimeout(() => {
+        navigate("/answerQueries");
+      }, 2000);
+    } catch (e) {
+      console.log(e.response.data);
+      toast.error(`${e.response.data}`, {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1500,
+      });
+    }
   };
 
   const submitPrescription = async (e) => {
     e.preventDefault();
-    if(submitType == "update"){
+    if (submitType == "update") {
       updatePrescription();
-    }else{
+    } else {
       deletePrescription();
     }
   };
@@ -162,7 +166,7 @@ const Prescribe = () => {
     <>
       <Navbar />
       <>
-        { prescribed ? (
+        {prescribed ? (
           <>
             <p className="text">
               You have already given your prescription, if there are any changes
@@ -180,7 +184,6 @@ const Prescribe = () => {
                   value="Update this prescription"
                   // onClick={submitPrescription}
                   onClick={(e) => setSubmitType("update")}
-
                 />
                 <br></br>
                 <input
@@ -211,6 +214,12 @@ const Prescribe = () => {
         )}
       </>
       <ToastContainer />
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <br></br>
       <Footer />
     </>

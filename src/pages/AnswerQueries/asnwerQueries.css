@@ -127,7 +127,7 @@
   /* padding: 10%; */
 }
 
-.body{
+.answerBody{
     padding: 4%;
     font-weight: 400;
 }
@@ -141,4 +141,8 @@
 .btn{
     color: #1B6F06;
 
+}
+
+.body{
+    min-height: 53.5vh;
 }

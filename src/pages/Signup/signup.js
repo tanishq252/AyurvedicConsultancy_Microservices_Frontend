@@ -68,7 +68,7 @@ export default function SignUp() {
       if (doctor) {
         try {
           const res = await axios.post(
-            "http://localhost:3000/authService/signup",
+            "http://microservices-1023118942.ap-south-1.elb.amazonaws.com/authService/signup",
             {
               doctorname: name,
               email: email,
@@ -92,7 +92,7 @@ export default function SignUp() {
       } else {
         try {
           const res = await axios.post(
-            "http://localhost:3000/authService/signup",
+            "http://microservices-1023118942.ap-south-1.elb.amazonaws.com/authService/signup",
             {
               username: name,
               email: email,

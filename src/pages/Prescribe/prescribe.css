@@ -33,6 +33,7 @@
     border-color: #2EBC99;
     align-items: center;
     align-content: center;
+    margin-bottom: 100px;
 }
 .form-style-6 h1{
 	background: #43D1AF;
@@ -41,6 +42,7 @@
 	font-weight: 300;
 	text-align: center;
 	color: #fff;
+    margin-bottom: 200px;
 	margin: -16px -16px 16px -16px;
 }
 .form-style-6 input[type="text"],
@@ -129,8 +131,10 @@
 }
 
 .body{
-    padding: 4%;
+    /* padding: 4%; */
     font-weight: 400;
+    min-height: 53.5vh;
+
 }
 
 .viewpresc{

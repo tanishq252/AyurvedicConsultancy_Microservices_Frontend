@@ -14,6 +14,10 @@
     border-width: 10px;
 }
 
+.body{
+    min-height: 53.5vh;
+}
+
 .input{
     align-self: center;
 }
@@ -112,7 +116,7 @@
 	background: #2EBC99;
 }
 
-.querycontainer{
+.answerBody{
     width: fit-content; 
   /* To adjust the height as well */ 
   height: fit-content;

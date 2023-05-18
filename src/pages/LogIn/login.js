@@ -64,7 +64,7 @@ export default function Login() {
       if (doctor) {
         try {
           const res = await axios.post(
-            "http://localhost:3000/authService/signin",
+            "http://microservices-1023118942.ap-south-1.elb.amazonaws.com/authService/signin",
             {
               email: email,
               password: password,
@@ -72,14 +72,16 @@ export default function Login() {
             }
           );
           console.log(res);
-          localStorage.setItem("userId",res.data._id)
-          localStorage.setItem("client",res.data.client)
-          localStorage.setItem("name",res.data.doctorname)
+          localStorage.setItem("userId", res.data._id);
+          localStorage.setItem("client", res.data.client);
+          localStorage.setItem("name", res.data.doctorname);
           toast.success(
             `Hello ${res.data.doctorname}, you are welcome our portal`,
             { position: toast.POSITION.TOP_CENTER, autoClose: 1500 }
           );
-          setTimeout(() => {navigate("/home")}, 2500);
+          setTimeout(() => {
+            navigate("/home");
+          }, 2500);
         } catch (e) {
           console.log(e.response.data);
           toast.error(`${e.response.data}`, {
@@ -90,7 +92,7 @@ export default function Login() {
       } else {
         try {
           const res = await axios.post(
-            "http://localhost:3000/authService/signin",
+            "http://microservices-1023118942.ap-south-1.elb.amazonaws.com/authService/signin",
             {
               email: email,
               password: password,
@@ -98,15 +100,17 @@ export default function Login() {
             }
           );
           console.log(res);
-          localStorage.setItem("userId",res.data._id)
-          localStorage.setItem("client",res.data.client)
-          localStorage.setItem("name",res.data.username)
+          localStorage.setItem("userId", res.data._id);
+          localStorage.setItem("client", res.data.client);
+          localStorage.setItem("name", res.data.username);
 
           toast.success(
             `Hello ${res.data.username}, you are welcome to our portal`,
             { position: toast.POSITION.TOP_CENTER, autoClose: 1500 }
           );
-          setTimeout(() => {navigate("/home")}, 2500);
+          setTimeout(() => {
+            navigate("/home");
+          }, 2500);
         } catch (e) {
           console.log(e.response.data);
           toast.error(`${e.response.data}`, {

@@ -3,6 +3,8 @@ html, body {
     justify-content: center;
     font-family: Roboto, Arial, sans-serif;
     font-size: 15px;
+    min-height: 53.5vh;
+    
     }
     form {
     border: 5px solid #f1f1f1;

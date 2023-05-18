@@ -116,7 +116,7 @@
     width: fit-content; 
   /* To adjust the height as well */ 
   height: fit-content;
-  min-height: 10vh;
+  /* min-height: 10vh; */
   min-width: 60%;
   margin-left: 20%;
   margin-right: 10%;
@@ -126,7 +126,11 @@
   /* padding: 10%; */
 }
 
-.body{
+.page{
+    min-height: 53.5vh;
+}
+
+.answerBody{
     padding: 4%;
     font-weight: 400;
 }
@@ -141,4 +145,8 @@
 .btn{
     color: #1B6F06;
 
+}
+
+.body{
+    min-height: 53.5vh;
 }

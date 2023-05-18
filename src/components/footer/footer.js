@@ -11,14 +11,16 @@ function Footer() {
   return (
     <>
     {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#248FA8" fill-opacity="1" d="M0,96L80,101.3C160,107,320,117,480,112C640,107,800,85,960,80C1120,75,1280,85,1360,90.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg> */}
-    <Box sx={{
+    <Box  sx={{
         width: '100%',
         // spacing:8,
         backgroundColor: '#C2F4AD',
         // backgroundImage: 'linear-gradient(-45deg, #21A4C1 10%, #295F6F 40%)',
         display:"flex" ,
         alignItems:"center",
-        justifyContent:"center"
+        justifyContent:"center",
+        bottom: '0px',
+        position: 'relative',
     }}>
         <Container maxWidth="lg">
             <Stack sx={{
