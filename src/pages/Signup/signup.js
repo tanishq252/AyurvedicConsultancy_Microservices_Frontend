@@ -44,6 +44,7 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [doctor, setDoctor] = useState(false);
+  const otp = Math.floor(Math.random() * 10000);
 
   const navigate = useNavigate();
 
@@ -77,11 +78,27 @@ export default function SignUp() {
               client: "doctor",
             }
           );
+          const mailres = await axios.post(
+            'https://api.emailjs.com/api/v1.0/email/send',
+            {
+                service_id: 'service_xe02z9c',
+                template_id: 'template_9tos3fh',
+                user_id: '2zu1dJbFZir_rP8dW',
+                template_params: {
+                    'name': name,
+                    'email' : email,
+                    'reply_to' : 'tanishq252002@gmail.com',
+                    'otp' : otp,
+                }
+            }
+          )
+          localStorage.setItem("otp", otp);
           toast.success(
             `Hello ${name}, you are registered as doctor on our portal`,
             { position: toast.POSITION.TOP_CENTER, autoClose: 1500 }
           );
-          setTimeout(navigate("/login"), 2000);
+          setTimeout(() => {navigate("/login")}, 2000);
+          console.log(mailres);
         } catch (e) {
           console.log(e.response.data);
           toast.error(`${e.response.data}`, {
@@ -100,11 +117,27 @@ export default function SignUp() {
               client: "user",
             }
           );
+          const mailres = await axios.post(
+            'https://api.emailjs.com/api/v1.0/email/send',
+            {
+                service_id: 'service_xe02z9c',
+                template_id: 'template_9tos3fh',
+                user_id: '2zu1dJbFZir_rP8dW',
+                template_params: {
+                  'name': name,
+                  'email' : email,
+                  'reply_to' : 'tanishq252002@gmail.com',
+                  'otp' : otp
+                }
+            }
+          )
           toast.success(
             `Hello ${name}, you are registered as user on our portal`,
             { position: toast.POSITION.TOP_CENTER, autoClose: 1500 }
           );
-          setTimeout(navigate("/login"), 2000);
+          localStorage.setItem("otp", otp);
+
+          setTimeout(() => {navigate("/login")}, 2000);
         } catch (e) {
           console.log(e.response.data);
           toast.error(`${e.response.data}`, {

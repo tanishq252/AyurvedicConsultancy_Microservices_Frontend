@@ -44,6 +44,9 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [doctor, setDoctor] = useState(false);
+  const [clientOTP, setOTP] = useState();
+
+  const otp = localStorage.getItem("otp");
 
   const navigate = useNavigate();
 
@@ -59,7 +62,13 @@ export default function Login() {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 1500,
       });
-    } else {
+    } else if(otp != clientOTP) {
+      toast.warn("Wrong OTP", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1500,
+      });
+    }
+    else {
       console.log({ email, password, doctor });
       if (doctor) {
         try {
@@ -82,6 +91,8 @@ export default function Login() {
           setTimeout(() => {
             navigate("/home");
           }, 2500);
+          localStorage.removeItem('otp')
+
         } catch (e) {
           console.log(e.response.data);
           toast.error(`${e.response.data}`, {
@@ -103,6 +114,7 @@ export default function Login() {
           localStorage.setItem("userId", res.data._id);
           localStorage.setItem("client", res.data.client);
           localStorage.setItem("name", res.data.username);
+          localStorage.removeItem('otp')
 
           toast.success(
             `Hello ${res.data.username}, you are welcome to our portal`,
@@ -173,6 +185,20 @@ export default function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </Grid>
+                {
+                  otp ? <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    label="OTP"
+                    type="text"
+                    id="OTP"
+                    // autoComplete="new-password"
+                    value={clientOTP}
+                    onChange={(e) => setOTP(e.target.value)}
+                  />
+                </Grid> : <></>
+                }
                 <Grid item xs={12}>
                   <FormControlLabel
                     control={
