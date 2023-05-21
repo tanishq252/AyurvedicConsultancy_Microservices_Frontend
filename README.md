@@ -41,6 +41,41 @@ The architecture of this project consists of the following components:
 - Doctors will be able to answer all the current queries, update and delete already answered queries, doctors will be provided an option to upload the hand written prescription if any.
 - In next build, the queries will be further divided in multiple segments for eg. Vision related queries, Body pain related queries, Digestion related queries, etc.
 
+## User Interface
+
+- Home Page
+
+![image](https://github.com/tanishq252/AyurvedicConsultancy_Microservices_Frontend/assets/78098329/d8f08cf3-9173-4fb3-8023-bccc98593150)
+
+![image](https://github.com/tanishq252/AyurvedicConsultancy_Microservices_Frontend/assets/78098329/33b188e1-2de9-4a63-a2e7-3494f937a665)
+
+- Login 
+
+![image](https://github.com/tanishq252/AyurvedicConsultancy_Microservices_Frontend/assets/78098329/e28abfa0-14e3-4f30-810a-8d0da2e21d04)
+
+- Signup
+
+![image](https://github.com/tanishq252/AyurvedicConsultancy_Microservices_Frontend/assets/78098329/0314497f-7a35-45f5-8c36-5bd8bf1666fd)
+
+- Answer Queries (Doctor)
+
+![image](https://github.com/tanishq252/AyurvedicConsultancy_Microservices_Frontend/assets/78098329/81f644d7-3d47-4864-8959-b6e02ea7f753)
+
+- Prescribe (Doctor)
+
+![image](https://github.com/tanishq252/AyurvedicConsultancy_Microservices_Frontend/assets/78098329/4f32dd31-29f7-43af-ad08-c4996130e6a1)
+
+![image](https://github.com/tanishq252/AyurvedicConsultancy_Microservices_Frontend/assets/78098329/ed403dbd-6553-4f4e-b699-0794aa3e55f7)
+
+- Ask Query (User)
+
+![image](https://github.com/tanishq252/AyurvedicConsultancy_Microservices_Frontend/assets/78098329/c6c93755-a2c1-4d34-9c04-3c025a5b9625)
+
+- View Prescriptions (User)
+
+![image](https://github.com/tanishq252/AyurvedicConsultancy_Microservices_Frontend/assets/78098329/a6c9509e-474a-4a82-a5c0-a60054e0c373)
+
+
 ## Tech Stack
 
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
