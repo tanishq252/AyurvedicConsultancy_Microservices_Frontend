@@ -49,4 +49,5 @@ The architecture of this project consists of the following components:
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
-  
+![image](https://github.com/tanishq252/AyurvedicConsultancy_Microservices_Frontend/assets/78098329/8e85316b-b8d3-4458-b46c-94299a058854)
+
