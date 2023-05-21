@@ -6,6 +6,8 @@ Explanation of deploying these services on AWS is available in the following lin
 
 Code of Node JS microservices: https://github.com/tanishq252/AyurvedicConsultancy_Microservices
 
+Blog on Monolithic vs Microservice Architecture: https://medium.com/@tanishq252002/an-overview-of-monolith-vs-microservices-applications-80b39b42c29b
+
 ## Description
 
 This project aims to showcase the implementation of a microservices architecture using Node.js and AWS services. The microservices are designed to be decoupled, scalable, and independently deployable components. The AWS Load Balancer is used to distribute incoming traffic across multiple instances of these microservices, ensuring high availability and efficient utilization of resources. Following are the features of microservices architecture.
