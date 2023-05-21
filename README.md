@@ -1,6 +1,6 @@
 # Ayurvedic Consultants
 
-This is a simple application built using MERN stack, which consists of two types of users: doctor and patient. It consists of 3 services: authService, doctorService and userService. The whole motive of this application was to have microservices based architecture for studying purposes. These Node JS microservices are deployed using AWS ECS (Fargate), ECR and EC2 (application loadbalancer).
+This application is built using MERN stack, which consists of two types of users: doctor and patient. It consists of 3 services: authService, doctorService and userService. The whole motive of this application was to have microservices based architecture for studying purposes. These Node JS microservices are deployed using AWS ECS (Fargate), ECR and EC2 (application loadbalancer).
 
 Explanation of deploying these services on AWS is available in the following link: https://www.youtube.com/watch?v=V--1RruxJpA
 
